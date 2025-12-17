@@ -79,7 +79,15 @@
     <input type="text" id="number" placeholder="Views (no decimal)">
     <input type="text" id="name" placeholder="Enter Name">
 
-    <button id="submit">Submit</button>
+    <div style="margin-top:15px; text-align:left; font-size:14px;">
+  <label>
+    <input type="checkbox" id="agree">
+    I agree with our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+  </label>
+</div>
+
+<button id="submit" disabled>Submit</button>
+
 <b>
   
   ★ Note ★ </b><p>➜ 'Name' wale option me apne Payment Account ka name likhe.</p>
@@ -89,6 +97,13 @@
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbyuU2Vsoi2EgqFFKZa9j3s-s2_q53TU9kL_nbjZzrltN19bMsvWAP5-kCCOOdUZpVaFpQ/exec"; 
 
+  const agree = document.getElementById("agree");
+const submitBtn = document.getElementById("submit");
+
+agree.addEventListener("change", () => {
+  submitBtn.disabled = !agree.checked;
+});
+  
 document.getElementById("submit").addEventListener("click", async () => {
   const link = document.getElementById("link").value.trim();
   const number = document.getElementById("number").value.trim();
@@ -97,6 +112,11 @@ document.getElementById("submit").addEventListener("click", async () => {
 
   msg.textContent = "";
 
+  if (!agree.checked) {
+  msg.textContent = "Please agree with our Privacy Policy first";
+  return;
+  }
+  
   if (!link || !number || !name) {
     msg.textContent = "All fields are required";
     return;

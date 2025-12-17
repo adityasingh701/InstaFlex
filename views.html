@@ -55,6 +55,19 @@
      background-color:#blue;
      color:#white;
    }
+    .agree-box{
+  margin-top:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+}
+
+.agree-box input[type="checkbox"]{
+  width:auto;
+  margin:0;
+}
+    
   </style>
 </head>
 <body>
@@ -79,13 +92,14 @@
     <input type="text" id="number" placeholder="Views (no decimal)">
     <input type="text" id="name" placeholder="Enter Name">
 
-    <div style="margin-top:15px; text-align:left; font-size:14px;">
-<label>➙ <input type="checkbox" id="agree"><b>I agree with our</b> <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+<div class="agree-box">
+  <input type="checkbox" id="agree">
+  <label for="agree">
+   <b> I agree with our</b> <a href="privacy-policy.html" target="_blank"><h4>Privacy Policy</h4></a>
   </label>
 </div>
 
 <button id="submit" disabled>Submit</button>
-
 <b>
   
   ★ Note ★ </b><p>➜ 'Name' wale option me apne Payment Account ka name likhe.</p>

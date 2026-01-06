@@ -284,6 +284,22 @@ h1{
 
 </div>
 
+
+    <script>
+  const openBtn = document.getElementById("openAlert");
+  const alertBox = document.getElementById("alertBox");
+  const closeBtn = document.getElementById("closeAlert");
+
+  openBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    alertBox.style.display = "flex";
+  });
+
+  closeBtn.addEventListener("click", function(){
+    alertBox.style.display = "none";
+  });
+    </script>
+    
 </body>
 </html>
 
